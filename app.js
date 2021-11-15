@@ -16,7 +16,7 @@ for (let i = 0; i < tableCell.length; i++) {
 }
 
 while (!player1) {
-    player1 = prompt('Player One: Enter your name. You will be red.');
+    player1 = prompt('Player One: Enter your name. You will be a nice orangey pink colour.');
 }
 
 player1Color = '#FF865E';
@@ -28,7 +28,7 @@ while (!player2) {
 player2Color = '#FEE440';
 
 var currentPlayer = 1;
-playerTurn.textContent = `${player1}'s turn!`
+playerTurn.textContent = `${player1}, it's your turn!`
 
 
 Array.prototype.forEach.call(tableCell, (cell) => {
@@ -46,30 +46,30 @@ function changeColor (e) {
             if (currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
-                    playerTurn.textContent = `${player1} wins!`;
+                    playerTurn.textContent = `${player1} REIGNS SUPREME!`;
                     playerTurn.style.color = player1Color;
                     playerTurn.style.backgroundColor = 'black';
-                    return (alert(`${player1} WINS!!`));
+                    return (alert(`I knew ${player1} would win!`));
                 } else if (drawCheck()) {
                     playerTurn.textContent = "Game is a draw!";
-                    return alert('DRAW!');
+                    return alert("It's a tie!");
                 } else {
-                    playerTurn.textContent = `${player2}'s turn!`;
+                    playerTurn.textContent = `${player2}, it's your turn!`;
                     return currentPlayer = 2;
                 }
             } else {
                 row[0].style.backgroundColor = player2Color;
                 playerTurn.textContent = `${player1}'s turn!`
                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
-                    playerTurn.textContent = `${player2} wins!`;
+                    playerTurn.textContent = `${player2} IS THE CONNECT FOUR CHAMPION!`;
                     playerTurn.style.color = player2Color;
                     playerTurn.style.backgroundColor = 'black';
-                    return (alert(`${player2} WINS!!`));
+                    return (alert(`Actually surprised ${player2} won.`));
                 } else if (drawCheck()) {
                     playerTurn.textContent = "Game is a draw!";
-                    return alert('DRAW!');
+                    return alert("It's a tie!");
                 } else {
-                    playerTurn.textContent = `${player1}'s turn!`;
+                    playerTurn.textContent = `${player1}, it's your turn!`;
                     return currentPlayer = 1;
                 }
             }
@@ -152,5 +152,5 @@ reset.addEventListener('click', () => {
     });
     playerTurn.style.color = 'black';
     playerTurn.style.backgroundColor = 'white';
-    return (currentPlayer === 1 ? playerTurn.textContent = `${player1}'s turn!` : playerTurn.textContent = `${player2}'s turn!`)
+    return (currentPlayer === 1 ? playerTurn.textContent = `${player1}, your turn!` : playerTurn.textContent = `${player2}, make your move!`)
 })
